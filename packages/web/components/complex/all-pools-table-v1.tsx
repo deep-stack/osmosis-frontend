@@ -36,7 +36,7 @@ import {
 import { EventName, IS_TESTNET } from "~/config";
 import { MultiLanguageT, useTranslation } from "~/hooks";
 import { useAmplitudeAnalytics, useFilteredData, useWindowSize } from "~/hooks";
-import { useFeatureFlags } from "~/hooks/use-feature-flags";
+// import { useFeatureFlags } from "~/hooks/use-feature-flags";
 import { MenuOptionsModal } from "~/modals";
 import { useStore } from "~/stores";
 import { ObservablePoolWithMetric } from "~/stores/derived-data";
@@ -133,12 +133,15 @@ export const AllPoolsTable: FunctionComponent<{
     const { logEvent } = useAmplitudeAnalytics();
     const { isMobile } = useWindowSize();
 
-    const flags = useFeatureFlags();
+    // const flags = useFeatureFlags();
 
     const router = useRouter();
     const PoolFilters = useMemo(
-      () => getPoolFilters(t, flags.concentratedLiquidity),
-      [t, flags.concentratedLiquidity]
+      // () => getPoolFilters(t, flags.concentratedLiquidity),
+      // [t, flags.concentratedLiquidity]
+      // Show supercharged pools for demo
+      () => getPoolFilters(t, true),
+      [t]
     );
     const IncentiveFilters = useMemo(() => getIncentiveFilters(t), [t]);
     const poolFilterQuery = useMemo(
@@ -228,7 +231,9 @@ export const AllPoolsTable: FunctionComponent<{
         sorting[0]?.id,
         sorting[0]?.desc,
         isSearching,
-        flags.concentratedLiquidity
+        // flags.concentratedLiquidity
+        // Show supercharged pools for demo
+        true
       );
 
     const initiallyFilteredPools = useMemo(
