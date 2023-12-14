@@ -36,3 +36,6 @@ export const FE_CONTENT_COMMIT_HASH =
 
 // Flag to override feature flags and enable them
 export const ENABLE_FEATURES = true;
+
+export const URBIT_DEPLOYMENT =
+  process.env.NEXT_PUBLIC_URBIT_DEPLOYMENT === "true";

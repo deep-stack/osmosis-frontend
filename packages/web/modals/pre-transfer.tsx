@@ -92,7 +92,7 @@ export const PreTransferModal: FunctionComponent<
               {t("assets.table.preTransfer.withdraw")}
               <Image
                 alt="external transfer link"
-                src="/icons/external-link-white.svg"
+                src={`${process.env.NEXT_PUBLIC_BASEPATH}/icons/external-link-white.svg`}
                 height={12}
                 width={12}
               />
@@ -129,7 +129,7 @@ export const PreTransferModal: FunctionComponent<
               <span>{t("assets.table.preTransfer.deposit")}</span>
               <Image
                 alt="external transfer link"
-                src="/icons/external-link-white.svg"
+                src={`${process.env.NEXT_PUBLIC_BASEPATH}/icons/external-link-white.svg`}
                 height={12}
                 width={12}
               />
